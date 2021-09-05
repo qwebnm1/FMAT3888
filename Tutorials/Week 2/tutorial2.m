@@ -9,6 +9,7 @@
 n=7; % maximum exponenet and number of trials
 J = linspace(1,n,n); % vector of exponents
 MU = zeros(1,length(J)); % zeros for final evaluation of average
+
 % Looping over 'n' seperate trials
 for i=1:length(J)
     N=10^J(i); % number of simulations
@@ -19,6 +20,7 @@ for i=1:length(J)
     end
     MU(i)=mu/N*pi; % evaluation of average over all simulations
 end 
+
 % Creating a plot to visualise the convergece towards the real solution as n>>10
 figure(1);
 plot(J,MU,'b','LineWidth',2);
@@ -42,11 +44,13 @@ N=10^6; % Number of simulations
 Y=randn(1,N);
 Z=zeros(1,N); % will be used for price for S_T
 W=zeros(1,N);
+
 % Looping over given number of simulations
 for k=1:N
     Z(k)=S0*exp((r-0.5*sigma^2)*T + (sigma*sqrt(T)*Y(k)));
     W(k)=max(Z(k)-K,0);
 end 
+
 price=exp(-r*T)*sum(W)/N;
 figure(2);
 histogram(W,100)
@@ -64,17 +68,21 @@ N=10^6; % Number of simulations
 Y=randn(1,N);
 Z=zeros(1,N); % will be used for price for S_T
 W=zeros(1,N);
+
 for k=1:N
     Z(k)=S0*exp((r-0.5*sigma^2)*T + (sigma*sqrt(T)*Y(k)));
     W(k)=max(Z(k)-K,0);
 end
+
 U=zeros(1,N); % for \bar f 
 for k=2:N
     U(k)=U(k-1)+W(k);
 end 
+
 for k=1:N
     U(k)=exp(-r*T)*U(k)/k;
 end
+
 figure(3);
 plot(1:N,U)
 xlabel('Number of simulations');
