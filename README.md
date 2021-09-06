@@ -1,2 +1,2 @@
 # Financial Mathematics
-File for tutorial, assignment, and personal project material in the unit FMAT3888
+Repo for tutorial, assignment, and personal project material in the unit FMAT3888
