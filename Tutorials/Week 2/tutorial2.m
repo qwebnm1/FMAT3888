@@ -207,7 +207,3 @@ xlabel('Number of simulations')
 ylabel('Price of call option')
 title('Convergence diagram with importance sampling')
 hold on
-
-
-
-
