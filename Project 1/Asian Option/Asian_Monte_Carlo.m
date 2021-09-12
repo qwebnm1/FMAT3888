@@ -1,12 +1,13 @@
 %OPTION PARAMETERS%
-S = 50;
-K = 50;
-r = 0.01;
+tic
+S = 100;
+K = 100;
+r = 0.05;
 T=1;
 sigma=0.25;
 NSteps=24;
 %Simulating with Halton random numbers%
-N=1000;
+N=5000;
 G = zeros(1,N);
 for i=1:N
     q = qrandstream('halton',NSteps,'Skip',1e3,'Leap',1e2);
@@ -25,7 +26,7 @@ figure(1)
 plot(G,'-b')
 grid minor
 grid on
-title('Convergence Diagram (Asian Option)')
+title('Convergence Diagram (Asian Option, Halton Random Numbers)')
 ylabel('Option Price (Numerical)')
 xlabel('No. of Simulations')
 lgd=sprintf('$ %0.5f',G(end));
@@ -33,7 +34,7 @@ legend({lgd})
 saveas(gcf,'Asian_MC_Halton','png')
 
 %Simulating with Sobol random numbers%
-N=1000;
+N=5000;
 G = zeros(1,N);
 for i=1:N
     q = qrandstream('sobol',NSteps,'Skip',1e3,'Leap',1e2);
@@ -52,7 +53,7 @@ figure(2)
 plot(G,'-b')
 grid minor
 grid on
-title('Convergence Diagram (Asian Option)')
+title('Convergence Diagram (Asian Option, Sobol Random Numbers)')
 ylabel('Option Price (Numerical)')
 xlabel('No. of Simulations')
 lgd=sprintf('$ %0.5f',G(end));
@@ -60,7 +61,7 @@ legend({lgd})
 saveas(gcf,'Asian_MC_Sobol','png')
 
 %Simulating with quasi-random numbers%
-N=1000;
+N=5000;
 G = zeros(1,N);
 for i=1:N
     z_RandMat = norminv(rand(i,NSteps),0,1);
@@ -77,9 +78,10 @@ figure(3)
 plot(G,'-b')
 grid minor
 grid on
-title('Convergence Diagram (Asian Option)')
+title('Convergence Diagram (Asian Option, \sim IG(0,1))')
 ylabel('Option Price (Numerical)')
 xlabel('No. of Simulations')
 lgd=sprintf('$ %0.5f',G(end));
 legend({lgd})
 saveas(gcf,'Asian_MC_Inv_Norm','png')
+toc
