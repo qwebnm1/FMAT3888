@@ -11,7 +11,7 @@ function [put, call] = BSExact(S, K, r, sigma, T)
 % - K: the strike price in the option contract
 % - r: the risk-free interest rate on the option contract
 % - sigma: volatilty of the option price
-% - T: the time to expiry (matutiry) of the option contract
+% - T: the time to expiry (maturity) of the option contract
 %
 %---------
 %OUTPUTS
