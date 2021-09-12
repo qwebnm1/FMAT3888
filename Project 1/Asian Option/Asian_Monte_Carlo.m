@@ -1,11 +1,11 @@
 %OPTION PARAMETERS%
 tic
-S = 100;
-K = 100;
-r = 0.05;
-T=1;
-sigma=0.25;
-NSteps=24;
+S = 100; % option buy price
+K = 100; % option strike price
+r = 0.05; % interest rate
+T=1; % period to expiry
+sigma=0.25; % price volatility
+NSteps=24; % number of simulations in [1,T]
 %Simulating with Halton random numbers%
 N=5000;
 G = zeros(1,N);
