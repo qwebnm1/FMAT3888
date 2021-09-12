@@ -14,7 +14,7 @@ for i=1:N
     z_RandMat = norminv(RandMat,0,1);
     dt = T/NSteps;
     C = (r-0.5*sigma^2)*dt + sigma*sqrt(dt)*z_RandMat;
-    Paths = cumsum([log(S0)*ones(i,1),C],2);
+    Paths = cumsum([log(S)*ones(i,1),C],2);
     % Underlying asset price path
     SPaths = exp(Paths);
     Payoff = zeros(i,1);
@@ -41,7 +41,7 @@ for i=1:N
     z_RandMat = norminv(RandMat,0,1);
     dt = T/NSteps;
     C = (r-0.5*sigma^2)*dt + sigma*sqrt(dt)*z_RandMat;
-    Paths = cumsum([log(S0)*ones(i,1),C],2);
+    Paths = cumsum([log(S)*ones(i,1),C],2);
     % Underlying asset price path
     SPaths = exp(Paths);
     Payoff = zeros(i,1);
@@ -66,7 +66,7 @@ for i=1:N
     z_RandMat = norminv(rand(i,NSteps),0,1);
     dt = T/NSteps;
     C = (r-0.5*sigma^2)*dt + sigma*sqrt(dt)*z_RandMat;
-    Paths = cumsum([log(S0)*ones(i,1),C],2);
+    Paths = cumsum([log(S)*ones(i,1),C],2);
     % Underlying asset price path
     SPaths = exp(Paths);
     Payoff = zeros(i,1);
