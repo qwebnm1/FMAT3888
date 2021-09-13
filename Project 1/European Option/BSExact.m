@@ -1,6 +1,5 @@
 function [put, call] = BSExact(S, K, r, sigma, T)
 %FuncName: BSExact.m
-%Author: Vish137
 %Description: this computes the exact value of European options in the
 %Black Scholes model
 %
@@ -24,7 +23,6 @@ d1 = (log(S/K) + (r + 0.5*sigma^2)*T)/(sigma*sqrt(T));
 d2 = d1 - sigma*sqrt(T);
 N1p = 0.5*(1+erf(-1*d1/sqrt(2)));
 N2p = 0.5*(1+erf(-1*d2/sqrt(2)));
-
 N1c = 0.5*(1+erf(d1/sqrt(2)));
 N2c = 0.5*(1+erf(d2/sqrt(2)));
 
